@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Image Generator 🎨</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="finalProject_img.css" />
+    <script type="module" src="finalProject_img.js" defer></script>
+  </head>
+  <body>
+ 
+    <header>🖼️ Gemini AI Image Generator</header>
+ <button onclick="location.href='index.html'" class="picturebot-btn">back</button>
+    <main>
+      <p>Describe anything you'd like me to draw!</p>
+      <input
+        type="text"
+
+        id="prompt-input"
+        placeholder="e.g. A dancing avocado on Mars"
+      />
+      <button id="generate-btn">Generate</button>
+
+      <div id="status"></div>
+      <div id="image-result">
+        <div id="caption"></div>
+      </div>
+    </main>
+  </body>
+</html>

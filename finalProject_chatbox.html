@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat with AI Buddy 🤖</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="finalProject_chatbox.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="finalProject_chatbox.js" defer></script>
+  </head>
+  <body>
+    <button onclick="location.href='index.html'" class="picturebot-btn">back</button>
+    <div style="text-align: center; padding: 20px">
+      <h1 style="margin: 0; font-size: 2.2em; color: #004aad">
+        🤖 Google AI Chat Box
+      </h1>
+      <p style="font-size: 1.1em; color: #333">
+        Ask anything fun and learn with AI!
+      </p>
+    </div>
+    <div id="chat-container">
+      <div id="chat-box"></div>
+      <div id="input-area">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Ask me anything fun! 😊"
+        />
+        <button id="send-btn">Send</button>
+        
+      </div>
+    </div>
+  </body>
+</html>
