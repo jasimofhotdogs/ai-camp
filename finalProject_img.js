@@ -1,10 +1,19 @@
-const API_KEY = ""; // 🔐 Replace with your actual key
+const API_KEY = "AIzaSyBFxnS16ZI3wxor8smZQlsv8o6mt6_Z6Es";
+
 const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-preview-image-generation:generateContent?key=${API_KEY}`;
 
 // GET HTML ELEMENTS
+const promptInput = document.getElementById("prompt-input");
+const generateBtn = document.getElementById("generate-btn");
+const imageResult = document.getElementById("image-result");
+const statuss = document.getElementById("status");
+const caption = document.getElementById("caption")
+
+
+
 
 async function generateImage(prompt) {
-  status.textContent = "🧠 Thinking...";
+  statuss.textContent = "🧠 Thinking...";
   imageResult.innerHTML = "";
   caption.textContent = "";
 
@@ -12,10 +21,21 @@ async function generateImage(prompt) {
     // SEND API REQUEST
     // GET API RESPONSE JSON
     // CODE HERE
+    const response = await fetch(ENDPOINT,{
+      method:"POST",
+      headers: {"Content-Type":"aplication/json"},
+      body: JSON.stringify({
+        contents: [{parts: [{text: prompt}]}],
+        generationConfig:{
+          responseModalities: ["TEXT","IMAGE"],
+        },
+      }),
+    });
+    const data = await response.json();
     const parts = data?.candidates?.[0]?.content?.parts;
 
     if (!parts || parts.length === 0) {
-      status.textContent = "⚠️ No response from model.";
+      statuss.textContent = "⚠️ No response from model.";
       return;
     }
 
@@ -33,9 +53,20 @@ async function generateImage(prompt) {
     });
 
     // DISPLAY SUCCESS TEXT
+    statuss.textContent="here you go";
   } catch (err) {
     // DISPLAY ERROR TEXT 
+    statuss.textContent="sry we had an error";
   }
 }
 
 // GENERATE IMG BUTTON
+generateBtn.onclick = () => {
+  const prompt = promptInput.value.trim();
+  if (prompt){
+    generateImage(prompt);
+  }
+  else{
+    statuss.testcontent="pls type a prompt";
+  }
+};
